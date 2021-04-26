@@ -15,7 +15,7 @@ namespace DayClustering.atom
 	{
 		public DayData[] dayData;
 
-		static Pen cluterPen = new Pen(Color.Red, 2);
+		static Pen clusterPen = new Pen(Color.Red, 2);
 		static Pen dataPen = new Pen(Color.Orange, 2);
 
 		Bitmap bitmap;
@@ -25,6 +25,7 @@ namespace DayClustering.atom
 			Margin = new Padding(10);
 			Cursor = Cursors.Hand;
 			Dock = DockStyle.Fill;
+			BackColor = Color.White;
 		}
 
 		public void DrawBitmap()
@@ -35,14 +36,14 @@ namespace DayClustering.atom
 			Console.WriteLine(Width);
 			Console.WriteLine(Height);
 
-			float heightRatio = Height / (float)3000;
+			float heightRatio = Height / (float)5000;
 			Point[][] point_data = new Point[dayData.Length][];
 			for (int i = 0; i < point_data.Length; i++)
 				point_data[i] = new Point[dayData[0].data.timeSlot.Length];
 			Parallel.For(0, point_data.Length, (i) =>
 			{
 				for (int e = 0; e < point_data[i].Length; e++)
-					point_data[i][e] = new Point(e * Width / (dayData[i].data.timeSlot.Length - 1), Height - 1 - (int)(dayData[i].data.timeSlot[e] * Height / 3000));
+					point_data[i][e] = new Point(e * Width / (dayData[i].data.timeSlot.Length - 1), Height - 1 - (int)(dayData[i].data.timeSlot[e] * Height / 5000));
 			});
 
 			for (int h = 1; h < 4; h++)
@@ -53,6 +54,17 @@ namespace DayClustering.atom
 
 			for (int i = 0; i < dayData.Length; i++)
 				g.DrawLines(dataPen, point_data[i]);
+
+			Point[][] point_cluster = new Point[dayData.Length][];
+			for (int i = 0; i < point_cluster.Length; i++)
+				point_cluster[i] = new Point[dayData[0].cluster.timeSlot.Length];
+			Parallel.For(0, point_cluster.Length, (i) =>
+			{
+				for (int e = 0; e < point_data[i].Length; e++)
+					point_cluster[i][e] = new Point(e * Width / (dayData[i].cluster.timeSlot.Length - 1), Height - 1 - (int)(dayData[i].cluster.timeSlot[e] * Height / 5000));
+			});
+			for (int i = 0; i < dayData.Length; i++)
+				g.DrawLines(clusterPen, point_cluster[i]);
 
 			this.Invalidate();
 		}
