@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DayClustering.common;
+using DayClustering.atom;
 
 namespace DayClustering
 {
@@ -15,6 +16,8 @@ namespace DayClustering
 	{
 		public event ViewHandler<IView> changed;
 		IController controller;
+		EnergyGraph eg;
+
 		public Component()
 		{
 			InitializeComponent();
@@ -35,6 +38,24 @@ namespace DayClustering
 					break;
 				case MODEL_ACTIONS.LOAD_EXCEL_NOT_FOUND:
 					MessageBox.Show("검색 결과가 존재하지 않습니다!");
+					break;
+				case VIEW_ACTIONS.REQUEST_DAYDATA:
+					if(eg == null)
+					{
+						this.eg = new EnergyGraph()
+						{
+							dayData = e.dayData
+						};
+
+						tableLayoutPanel1.Controls.Add(eg, 0, 1);
+					} else
+					{
+						eg.dayData = e.dayData;
+					}
+					
+					eg.DrawBitmap();
+					eg.Invalidate();
+
 					break;
 				default:
 					return;

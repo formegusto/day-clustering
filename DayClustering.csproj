@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="atom\EnergyGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="atom\EnergyGraph.Designer.cs">
+      <DependentUpon>EnergyGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="common\Actions.cs" />
     <Compile Include="Component.cs">
       <SubType>Form</SubType>

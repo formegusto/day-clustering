@@ -21,6 +21,7 @@ namespace DayClustering
 		public string cluster;
 		public string search;
 		public string day;
+		public DayData[] dayData;
 
 		public ModelEventArgs(string a)
 		{
@@ -33,6 +34,11 @@ namespace DayClustering
 			this.cluster = c;
 			this.search = s;
 			this.day = d;
+		}
+
+		public ModelEventArgs(string a, DayData[] dd) {
+			this.action = a;
+			this.dayData = dd;
 		}
 	}
 
@@ -114,10 +120,12 @@ namespace DayClustering
 
 		public void RequestDayData(string dayFullName)
 		{
-			this.dayStore[DateUtils.KRDayToIndex(dayFullName)].ToList().ForEach((d) =>
+			this.dayStore[DateUtils.KRDayToIndex(dayFullName)].ForEach((d) =>
 			{
 				Console.WriteLine(d.ToString());
 			});
+
+			this.changed.Invoke(this, new ModelEventArgs(VIEW_ACTIONS.REQUEST_DAYDATA, this.dayStore[DateUtils.KRDayToIndex(dayFullName)].ToArray()));
 		}
 	}
 }
