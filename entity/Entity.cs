@@ -20,10 +20,10 @@ namespace DayClustering.entity
 		public string ToString(string joinData = "")
 		{
 			return String.Format("DataInfo\t[UID] {0}\t ClusterInfo\t[UID] {5}\n" +
-				"\t\t[mainCluster] {1}\t\t[mainCluster] {6}\n" +
-				"\t\t[subCluster] {2}\t\t[subCluster] {7}\n" +
-				"\t\t[Wh] {3}\t\t[Wh] {8}\n" +
-				"\t\t[timeSlot] {4}\t\t[timeSlot] {9}\n" + 
+				"\t\t[mainCluster] {1}\t\t\t[mainCluster] {6}\n" +
+				"\t\t[subCluster] {2}\t\t\t[subCluster] {7}\n" +
+				"\t\t[Wh] {3}\t\t\t[Wh] {8}\n" +
+				"\t\t[timeSlot] {4}\n\t\t[timeSlot] {9}\n" + 
 				"{10}",
 					this.data.uid, this.data.mainCluster, this.data.subCluster, this.data.Wh, string.Join("/", this.data.timeSlot),
 						this.cluster.uid, this.cluster.mainCluster, this.cluster.subCluster, this.cluster.Wh, string.Join("/", this.cluster.timeSlot),

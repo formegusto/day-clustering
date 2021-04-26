@@ -71,5 +71,37 @@ namespace DayClustering.utils
 
 			return idx;
 		}
+
+		public static int KRDayToIndex(string src)
+		{
+			int idx = 0;
+
+			switch (src)
+			{
+				case "월요일":
+					idx = 1;
+					break;
+				case "화요일":
+					idx = 2;
+					break;
+				case "수요일":
+					idx = 3;
+					break;
+				case "목요일":
+					idx = 4;
+					break;
+				case "금요일":
+					idx = 5;
+					break;
+				case "토요일":
+					idx = 6;
+					break;
+				case "일요일":
+					idx = 0;
+					break;
+			}
+
+			return idx;
+		}
 	}
 }

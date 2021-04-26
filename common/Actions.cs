@@ -9,6 +9,7 @@ namespace DayClustering.common
 	public static class VIEW_ACTIONS
 	{
 		public const string CHANGE_KEYWORD = "change_keyword";
+		public const string REQUEST_DAYDATA = "request_daydata";
 	}
 
 	public static class MODEL_ACTIONS

@@ -49,5 +49,7 @@ namespace DayClustering
 			if(v == 13)
 				this.controller.Dispatch(MODEL_ACTIONS.LOAD_EXCEL);
 		}
+
+		private void Button_Action(object sender, EventArgs e) => this.changed(this, new ViewEventArgs(VIEW_ACTIONS.REQUEST_DAYDATA, "",((Button)sender).Text));
 	}
 }

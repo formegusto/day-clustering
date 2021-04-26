@@ -12,16 +12,18 @@ namespace DayClustering
 	{
 		public string action;
 		public string searchKeyword;
+		public string dayFullName;
 
 		public ViewEventArgs()
 		{
 
 		}
 
-		public ViewEventArgs(string a, string sk)
+		public ViewEventArgs(string a, string sk="", string d="")
 		{
 			this.action = a;
 			this.searchKeyword = sk;
+			this.dayFullName = d;
 		}
 	}
 

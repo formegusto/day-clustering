@@ -30,7 +30,16 @@
 		{
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.Sun = new System.Windows.Forms.Button();
+			this.Mon = new System.Windows.Forms.Button();
+			this.Tue = new System.Windows.Forms.Button();
+			this.Wed = new System.Windows.Forms.Button();
+			this.Thu = new System.Windows.Forms.Button();
+			this.Fri = new System.Windows.Forms.Button();
+			this.Sat = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -53,21 +62,124 @@
 			this.textBox1.Font = new System.Drawing.Font("맑은 고딕", 20F);
 			this.textBox1.Location = new System.Drawing.Point(3, 713);
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(431, 43);
+			this.textBox1.Size = new System.Drawing.Size(1178, 43);
 			this.textBox1.TabIndex = 0;
 			this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
 			this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 7;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+			this.tableLayoutPanel2.Controls.Add(this.Sat, 6, 0);
+			this.tableLayoutPanel2.Controls.Add(this.Fri, 5, 0);
+			this.tableLayoutPanel2.Controls.Add(this.Thu, 4, 0);
+			this.tableLayoutPanel2.Controls.Add(this.Wed, 3, 0);
+			this.tableLayoutPanel2.Controls.Add(this.Tue, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.Mon, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.Sun, 0, 0);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 1;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(1184, 43);
+			this.tableLayoutPanel2.TabIndex = 1;
+			// 
+			// Sun
+			// 
+			this.Sun.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Sun.Location = new System.Drawing.Point(3, 3);
+			this.Sun.Name = "Sun";
+			this.Sun.Size = new System.Drawing.Size(163, 37);
+			this.Sun.TabIndex = 0;
+			this.Sun.Text = "일요일";
+			this.Sun.UseVisualStyleBackColor = true;
+			this.Sun.Click += new System.EventHandler(this.Button_Action);
+			// 
+			// Mon
+			// 
+			this.Mon.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Mon.Location = new System.Drawing.Point(172, 3);
+			this.Mon.Name = "Mon";
+			this.Mon.Size = new System.Drawing.Size(163, 37);
+			this.Mon.TabIndex = 1;
+			this.Mon.Text = "월요일";
+			this.Mon.UseVisualStyleBackColor = true;
+			this.Mon.Click += new System.EventHandler(this.Button_Action);
+			// 
+			// Tue
+			// 
+			this.Tue.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Tue.Location = new System.Drawing.Point(341, 3);
+			this.Tue.Name = "Tue";
+			this.Tue.Size = new System.Drawing.Size(163, 37);
+			this.Tue.TabIndex = 2;
+			this.Tue.Text = "화요일";
+			this.Tue.UseVisualStyleBackColor = true;
+			this.Tue.Click += new System.EventHandler(this.Button_Action);
+			// 
+			// Wed
+			// 
+			this.Wed.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Wed.Location = new System.Drawing.Point(510, 3);
+			this.Wed.Name = "Wed";
+			this.Wed.Size = new System.Drawing.Size(163, 37);
+			this.Wed.TabIndex = 3;
+			this.Wed.Text = "수요일";
+			this.Wed.UseVisualStyleBackColor = true;
+			this.Wed.Click += new System.EventHandler(this.Button_Action);
+			// 
+			// Thu
+			// 
+			this.Thu.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Thu.Location = new System.Drawing.Point(679, 3);
+			this.Thu.Name = "Thu";
+			this.Thu.Size = new System.Drawing.Size(163, 37);
+			this.Thu.TabIndex = 4;
+			this.Thu.Text = "목요일";
+			this.Thu.UseVisualStyleBackColor = true;
+			this.Thu.Click += new System.EventHandler(this.Button_Action);
+			// 
+			// Fri
+			// 
+			this.Fri.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Fri.Location = new System.Drawing.Point(848, 3);
+			this.Fri.Name = "Fri";
+			this.Fri.Size = new System.Drawing.Size(163, 37);
+			this.Fri.TabIndex = 5;
+			this.Fri.Text = "금요일";
+			this.Fri.UseVisualStyleBackColor = true;
+			this.Fri.Click += new System.EventHandler(this.Button_Action);
+			// 
+			// Sat
+			// 
+			this.Sat.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Sat.Location = new System.Drawing.Point(1017, 3);
+			this.Sat.Name = "Sat";
+			this.Sat.Size = new System.Drawing.Size(164, 37);
+			this.Sat.TabIndex = 6;
+			this.Sat.Text = "토요일";
+			this.Sat.UseVisualStyleBackColor = true;
+			this.Sat.Click += new System.EventHandler(this.Button_Action);
 			// 
 			// Component
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1184, 761);
+			this.Controls.Add(this.tableLayoutPanel2);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Name = "Component";
 			this.Text = "Form1";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.tableLayoutPanel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -76,6 +188,14 @@
 
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+		private System.Windows.Forms.Button Sat;
+		private System.Windows.Forms.Button Fri;
+		private System.Windows.Forms.Button Thu;
+		private System.Windows.Forms.Button Wed;
+		private System.Windows.Forms.Button Tue;
+		private System.Windows.Forms.Button Mon;
+		private System.Windows.Forms.Button Sun;
 	}
 }
 

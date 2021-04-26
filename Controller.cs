@@ -25,6 +25,9 @@ namespace DayClustering
 				case VIEW_ACTIONS.CHANGE_KEYWORD:
 					this.model.ChangeKeyword(e.searchKeyword);
 					break;
+				case VIEW_ACTIONS.REQUEST_DAYDATA:
+					this.model.RequestDayData(e.dayFullName);
+					break;
 				default:
 					return;
 			}

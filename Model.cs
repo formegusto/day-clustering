@@ -46,6 +46,7 @@ namespace DayClustering
 		void Attach(IModelObserver observer);
 		void ChangeKeyword(string keyword);
 		void LoadExcel();
+		void RequestDayData(string dayFullName);
 	}
 
 	public class DayClusteringModel : IModel
@@ -64,7 +65,7 @@ namespace DayClustering
 			this.changed += new ModelHandler<DayClusteringModel>(imo.ModelNotify);
 		}
 
-		public async void LoadExcel()
+		public void LoadExcel()
 		{
 			DateTime startDate = new DateTime(2018,12,1);
 			DateTime endDate = new DateTime(2018, 12, 31);
@@ -97,8 +98,8 @@ namespace DayClustering
 							new Data(line.Split(',').ToList())
 							)
 						);
-						Console.WriteLine(dayStore[DateUtils.DayToIndex(currentDay)].Last().ToString("===========\n"));
-						Thread.Sleep(1000);
+						// Console.WriteLine(dayStore[DateUtils.DayToIndex(currentDay)].Last().ToString("===========\n"));
+						// Thread.Sleep(1000);
 						this.changed.Invoke(this, new ModelEventArgs(MODEL_ACTIONS.LOAD_EXCEL_SUCCESS, clusterTmp.uid, uid, DateUtils.DayToKR(currentDay)));
 						return;
 					}
@@ -109,10 +110,14 @@ namespace DayClustering
 			});
 		}
 
-		public void ChangeKeyword(string keyword)
+		public void ChangeKeyword(string keyword) => this.searchKeyword = keyword;
+
+		public void RequestDayData(string dayFullName)
 		{
-			Console.WriteLine("[Model: ChangeKeyword] " + keyword);
-			this.searchKeyword = keyword;
+			this.dayStore[DateUtils.KRDayToIndex(dayFullName)].ToList().ForEach((d) =>
+			{
+				Console.WriteLine(d.ToString());
+			});
 		}
 	}
 }
