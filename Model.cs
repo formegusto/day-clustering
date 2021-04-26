@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using DayClustering.common;
 using DayClustering.utils;
+using DayClustering.entity;
 using Microsoft.Office.Interop.Excel;
 
 namespace DayClustering
@@ -19,17 +20,19 @@ namespace DayClustering
 		public string action;
 		public string cluster;
 		public string search;
+		public string day;
 
 		public ModelEventArgs(string a)
 		{
 			this.action = a;
 		}
 
-		public ModelEventArgs(string a, string c, string s)
+		public ModelEventArgs(string a, string c, string s, string d)
 		{
 			this.action = a;
 			this.cluster = c;
 			this.search = s;
+			this.day = d;
 		}
 	}
 
@@ -49,9 +52,11 @@ namespace DayClustering
 	{
 		public string searchKeyword;
 		public event ModelHandler<DayClusteringModel> changed;
+		public List<DayData>[] dayStore;
 
 		public DayClusteringModel() {
 			this.searchKeyword = "";
+			this.dayStore = new List<DayData>[7];
 		}
 
 		public void Attach(IModelObserver imo)
@@ -63,31 +68,45 @@ namespace DayClustering
 		{
 			DateTime startDate = new DateTime(2018,12,1);
 			DateTime endDate = new DateTime(2018, 12, 31);
+			List<DateTime> dateList = new List<DateTime>();
 
-			for (DateTime sd = startDate; sd <= startDate; sd = sd.AddDays(1))
+			for (int i = 0; i < 7; i++)
+				this.dayStore[i] = new List<DayData>();
+
+			for(DateTime day = startDate; day <= endDate; day = day.AddDays(1))
+				dateList.Add(day);
+
+			Parallel.ForEach(dateList.ToArray(), async currentDay => 
 			{
-				string path = System.Windows.Forms.Application.StartupPath + @"\data\clustering_" + sd.ToString("yyyyMMdd") + ".csv";
+				Data clusterTmp = null;
+				string path = System.Windows.Forms.Application.StartupPath + @"\data\clustering_" + currentDay.ToString("yyyyMMdd") + ".csv";
 				StreamReader sr = new StreamReader(path, Encoding.GetEncoding("euc-kr"));
-				string cluster = "";
-				Console.WriteLine(String.Format("--------{0}--------", DateUtils.DayToKR(sd)));
+
 				while (!sr.EndOfStream)
 				{
 					string line = await sr.ReadLineAsync();
 					string uid = line.Split(',')[0];
 
 					if (uid.Contains("cluster"))
-						cluster = uid;
-					Console.WriteLine(uid);
-					if (uid == this.searchKeyword)
+						clusterTmp = new Data(line.Split(',').ToList());
+						
+					if (clusterTmp != null && uid == this.searchKeyword)
 					{
-						this.changed.Invoke(this, new ModelEventArgs(MODEL_ACTIONS.LOAD_EXCEL_SUCCESS, cluster, uid));
+						this.dayStore[DateUtils.DayToIndex(currentDay)].Add(new DayData(
+							clusterTmp,
+							new Data(line.Split(',').ToList())
+							)
+						);
+						Console.WriteLine(dayStore[DateUtils.DayToIndex(currentDay)].Last().ToString("===========\n"));
+						Thread.Sleep(1000);
+						this.changed.Invoke(this, new ModelEventArgs(MODEL_ACTIONS.LOAD_EXCEL_SUCCESS, clusterTmp.uid, uid, DateUtils.DayToKR(currentDay)));
 						return;
 					}
 				}
 
 				sr.Close();
 				this.changed.Invoke(this, new ModelEventArgs(MODEL_ACTIONS.LOAD_EXCEL_NOT_FOUND));
-			}
+			});
 		}
 
 		public void ChangeKeyword(string keyword)

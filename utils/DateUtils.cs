@@ -39,5 +39,37 @@ namespace DayClustering.utils
 
 			return day;
 		}
+
+		public static int DayToIndex(DateTime src)
+		{
+			int idx = 0;
+
+			switch (src.DayOfWeek)
+			{
+				case DayOfWeek.Monday:
+					idx = 1;
+					break;
+				case DayOfWeek.Tuesday:
+					idx = 2;
+					break;
+				case DayOfWeek.Wednesday:
+					idx = 3;
+					break;
+				case DayOfWeek.Thursday:
+					idx = 4;
+					break;
+				case DayOfWeek.Friday:
+					idx = 5;
+					break;
+				case DayOfWeek.Saturday:
+					idx = 6;
+					break;
+				case DayOfWeek.Sunday:
+					idx = 0;
+					break;
+			}
+
+			return idx;
+		}
 	}
 }
