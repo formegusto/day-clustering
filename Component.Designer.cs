@@ -31,7 +31,37 @@
 			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
 			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
 			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.ChartTablePanel = new System.Windows.Forms.TableLayoutPanel();
+			this.EnergyChart_24 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.EnergyChart_21 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.EnergyChart_18 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.EnergyChart_15 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.EnergyChart_12 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.EnergyChart_9 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.EnergyChart_6 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.EnergyChart_3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.Sat = new System.Windows.Forms.Button();
@@ -41,18 +71,25 @@
 			this.Tue = new System.Windows.Forms.Button();
 			this.Mon = new System.Windows.Forms.Button();
 			this.Sun = new System.Windows.Forms.Button();
-			this.EnergyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.ChartTablePanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_24)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_21)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_18)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_15)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_12)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_9)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_6)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_3)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.EnergyChart)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 1;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.ChartTablePanel, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 2);
-			this.tableLayoutPanel1.Controls.Add(this.EnergyChart, 0, 1);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -62,6 +99,171 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1184, 761);
 			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// ChartTablePanel
+			// 
+			this.ChartTablePanel.AutoScroll = true;
+			this.ChartTablePanel.ColumnCount = 8;
+			this.ChartTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1178F));
+			this.ChartTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1178F));
+			this.ChartTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1178F));
+			this.ChartTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1178F));
+			this.ChartTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1178F));
+			this.ChartTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1178F));
+			this.ChartTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1178F));
+			this.ChartTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1178F));
+			this.ChartTablePanel.Controls.Add(this.EnergyChart_24, 7, 0);
+			this.ChartTablePanel.Controls.Add(this.EnergyChart_21, 6, 0);
+			this.ChartTablePanel.Controls.Add(this.EnergyChart_18, 5, 0);
+			this.ChartTablePanel.Controls.Add(this.EnergyChart_15, 4, 0);
+			this.ChartTablePanel.Controls.Add(this.EnergyChart_12, 3, 0);
+			this.ChartTablePanel.Controls.Add(this.EnergyChart_9, 2, 0);
+			this.ChartTablePanel.Controls.Add(this.EnergyChart_6, 1, 0);
+			this.ChartTablePanel.Controls.Add(this.EnergyChart_3, 0, 0);
+			this.ChartTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ChartTablePanel.Location = new System.Drawing.Point(3, 43);
+			this.ChartTablePanel.MaximumSize = new System.Drawing.Size(1178, 645);
+			this.ChartTablePanel.Name = "ChartTablePanel";
+			this.ChartTablePanel.RowCount = 1;
+			this.ChartTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.ChartTablePanel.Size = new System.Drawing.Size(1178, 645);
+			this.ChartTablePanel.TabIndex = 2;
+			// 
+			// EnergyChart_24
+			// 
+			chartArea1.Name = "ChartArea1";
+			this.EnergyChart_24.ChartAreas.Add(chartArea1);
+			this.EnergyChart_24.Dock = System.Windows.Forms.DockStyle.Fill;
+			legend1.Name = "Legend1";
+			this.EnergyChart_24.Legends.Add(legend1);
+			this.EnergyChart_24.Location = new System.Drawing.Point(8249, 3);
+			this.EnergyChart_24.Name = "EnergyChart_24";
+			series1.ChartArea = "ChartArea1";
+			series1.Legend = "Legend1";
+			series1.Name = "Series1";
+			this.EnergyChart_24.Series.Add(series1);
+			this.EnergyChart_24.Size = new System.Drawing.Size(1172, 639);
+			this.EnergyChart_24.TabIndex = 9;
+			this.EnergyChart_24.Text = "chart7";
+			// 
+			// EnergyChart_21
+			// 
+			chartArea2.Name = "ChartArea1";
+			this.EnergyChart_21.ChartAreas.Add(chartArea2);
+			this.EnergyChart_21.Dock = System.Windows.Forms.DockStyle.Fill;
+			legend2.Name = "Legend1";
+			this.EnergyChart_21.Legends.Add(legend2);
+			this.EnergyChart_21.Location = new System.Drawing.Point(7071, 3);
+			this.EnergyChart_21.Name = "EnergyChart_21";
+			series2.ChartArea = "ChartArea1";
+			series2.Legend = "Legend1";
+			series2.Name = "Series1";
+			this.EnergyChart_21.Series.Add(series2);
+			this.EnergyChart_21.Size = new System.Drawing.Size(1172, 639);
+			this.EnergyChart_21.TabIndex = 8;
+			this.EnergyChart_21.Text = "chart6";
+			// 
+			// EnergyChart_18
+			// 
+			chartArea3.Name = "ChartArea1";
+			this.EnergyChart_18.ChartAreas.Add(chartArea3);
+			this.EnergyChart_18.Dock = System.Windows.Forms.DockStyle.Fill;
+			legend3.Name = "Legend1";
+			this.EnergyChart_18.Legends.Add(legend3);
+			this.EnergyChart_18.Location = new System.Drawing.Point(5893, 3);
+			this.EnergyChart_18.Name = "EnergyChart_18";
+			series3.ChartArea = "ChartArea1";
+			series3.Legend = "Legend1";
+			series3.Name = "Series1";
+			this.EnergyChart_18.Series.Add(series3);
+			this.EnergyChart_18.Size = new System.Drawing.Size(1172, 639);
+			this.EnergyChart_18.TabIndex = 7;
+			this.EnergyChart_18.Text = "chart5";
+			// 
+			// EnergyChart_15
+			// 
+			chartArea4.Name = "ChartArea1";
+			this.EnergyChart_15.ChartAreas.Add(chartArea4);
+			this.EnergyChart_15.Dock = System.Windows.Forms.DockStyle.Fill;
+			legend4.Name = "Legend1";
+			this.EnergyChart_15.Legends.Add(legend4);
+			this.EnergyChart_15.Location = new System.Drawing.Point(4715, 3);
+			this.EnergyChart_15.Name = "EnergyChart_15";
+			series4.ChartArea = "ChartArea1";
+			series4.Legend = "Legend1";
+			series4.Name = "Series1";
+			this.EnergyChart_15.Series.Add(series4);
+			this.EnergyChart_15.Size = new System.Drawing.Size(1172, 639);
+			this.EnergyChart_15.TabIndex = 6;
+			this.EnergyChart_15.Text = "chart1";
+			// 
+			// EnergyChart_12
+			// 
+			chartArea5.Name = "ChartArea1";
+			this.EnergyChart_12.ChartAreas.Add(chartArea5);
+			this.EnergyChart_12.Dock = System.Windows.Forms.DockStyle.Fill;
+			legend5.Name = "Legend1";
+			this.EnergyChart_12.Legends.Add(legend5);
+			this.EnergyChart_12.Location = new System.Drawing.Point(3537, 3);
+			this.EnergyChart_12.Name = "EnergyChart_12";
+			series5.ChartArea = "ChartArea1";
+			series5.Legend = "Legend1";
+			series5.Name = "Series1";
+			this.EnergyChart_12.Series.Add(series5);
+			this.EnergyChart_12.Size = new System.Drawing.Size(1172, 639);
+			this.EnergyChart_12.TabIndex = 5;
+			this.EnergyChart_12.Text = "chart1";
+			// 
+			// EnergyChart_9
+			// 
+			chartArea6.Name = "ChartArea1";
+			this.EnergyChart_9.ChartAreas.Add(chartArea6);
+			this.EnergyChart_9.Dock = System.Windows.Forms.DockStyle.Fill;
+			legend6.Name = "Legend1";
+			this.EnergyChart_9.Legends.Add(legend6);
+			this.EnergyChart_9.Location = new System.Drawing.Point(2359, 3);
+			this.EnergyChart_9.Name = "EnergyChart_9";
+			series6.ChartArea = "ChartArea1";
+			series6.Legend = "Legend1";
+			series6.Name = "Series1";
+			this.EnergyChart_9.Series.Add(series6);
+			this.EnergyChart_9.Size = new System.Drawing.Size(1172, 639);
+			this.EnergyChart_9.TabIndex = 4;
+			this.EnergyChart_9.Text = "chart1";
+			// 
+			// EnergyChart_6
+			// 
+			chartArea7.Name = "ChartArea1";
+			this.EnergyChart_6.ChartAreas.Add(chartArea7);
+			this.EnergyChart_6.Dock = System.Windows.Forms.DockStyle.Fill;
+			legend7.Name = "Legend1";
+			this.EnergyChart_6.Legends.Add(legend7);
+			this.EnergyChart_6.Location = new System.Drawing.Point(1181, 3);
+			this.EnergyChart_6.Name = "EnergyChart_6";
+			series7.ChartArea = "ChartArea1";
+			series7.Legend = "Legend1";
+			series7.Name = "Series1";
+			this.EnergyChart_6.Series.Add(series7);
+			this.EnergyChart_6.Size = new System.Drawing.Size(1172, 639);
+			this.EnergyChart_6.TabIndex = 3;
+			this.EnergyChart_6.Text = "chart1";
+			// 
+			// EnergyChart_3
+			// 
+			chartArea8.Name = "ChartArea1";
+			this.EnergyChart_3.ChartAreas.Add(chartArea8);
+			this.EnergyChart_3.Dock = System.Windows.Forms.DockStyle.Fill;
+			legend8.Name = "Legend1";
+			this.EnergyChart_3.Legends.Add(legend8);
+			this.EnergyChart_3.Location = new System.Drawing.Point(3, 3);
+			this.EnergyChart_3.Name = "EnergyChart_3";
+			series8.ChartArea = "ChartArea1";
+			series8.Legend = "Legend1";
+			series8.Name = "Series1";
+			this.EnergyChart_3.Series.Add(series8);
+			this.EnergyChart_3.Size = new System.Drawing.Size(1172, 639);
+			this.EnergyChart_3.TabIndex = 2;
+			this.EnergyChart_3.Text = "chart1";
 			// 
 			// textBox1
 			// 
@@ -175,23 +377,6 @@
 			this.Sun.UseVisualStyleBackColor = true;
 			this.Sun.Click += new System.EventHandler(this.Button_Action);
 			// 
-			// EnergyChart
-			// 
-			chartArea1.Name = "ChartArea1";
-			this.EnergyChart.ChartAreas.Add(chartArea1);
-			this.EnergyChart.Dock = System.Windows.Forms.DockStyle.Fill;
-			legend1.Name = "Legend1";
-			this.EnergyChart.Legends.Add(legend1);
-			this.EnergyChart.Location = new System.Drawing.Point(3, 43);
-			this.EnergyChart.Name = "EnergyChart";
-			series1.ChartArea = "ChartArea1";
-			series1.Legend = "Legend1";
-			series1.Name = "Series1";
-			this.EnergyChart.Series.Add(series1);
-			this.EnergyChart.Size = new System.Drawing.Size(1178, 645);
-			this.EnergyChart.TabIndex = 2;
-			this.EnergyChart.Text = "일요일 차트 데이터";
-			// 
 			// Component
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -203,8 +388,16 @@
 			this.Text = "Form1";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.ChartTablePanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_24)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_21)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_18)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_15)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_12)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_9)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_6)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.EnergyChart_3)).EndInit();
 			this.tableLayoutPanel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.EnergyChart)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -221,7 +414,15 @@
 		private System.Windows.Forms.Button Mon;
 		private System.Windows.Forms.Button Sun;
 		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart;
+		private System.Windows.Forms.TableLayoutPanel ChartTablePanel;
+		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart_3;
+		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart_6;
+		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart_9;
+		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart_12;
+		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart_15;
+		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart_18;
+		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart_21;
+		private System.Windows.Forms.DataVisualization.Charting.Chart EnergyChart_24;
 	}
 }
 

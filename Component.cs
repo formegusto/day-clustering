@@ -22,7 +22,37 @@ namespace DayClustering
 		{
 			InitializeComponent();
 
-			this.EnergyChart.Series[0].Points.Clear();
+			this.EnergyChart_3.Series[0].Points.Clear();
+			this.EnergyChart_3.Series[0].Color = Color.Red;
+			this.EnergyChart_3.Series[0].Name = "0~3h PowerFrequency";
+
+			this.EnergyChart_6.Series[0].Points.Clear();
+			this.EnergyChart_6.Series[0].Color = Color.Orange;
+			this.EnergyChart_6.Series[0].Name = "3~6h PowerFrequency";
+
+			this.EnergyChart_9.Series[0].Points.Clear();
+			this.EnergyChart_9.Series[0].Color = Color.Yellow;
+			this.EnergyChart_9.Series[0].Name = "6~9h PowerFrequency";
+
+			this.EnergyChart_12.Series[0].Points.Clear();
+			this.EnergyChart_12.Series[0].Color = Color.Green;
+			this.EnergyChart_12.Series[0].Name = "9~12h PowerFrequency";
+
+			this.EnergyChart_15.Series[0].Points.Clear();
+			this.EnergyChart_15.Series[0].Color = Color.Blue;
+			this.EnergyChart_15.Series[0].Name = "12~15h PowerFrequency";
+
+			this.EnergyChart_18.Series[0].Points.Clear();
+			this.EnergyChart_18.Series[0].Color = Color.Navy;
+			this.EnergyChart_18.Series[0].Name = "15~18h PowerFrequency";
+
+			this.EnergyChart_21.Series[0].Points.Clear();
+			this.EnergyChart_21.Series[0].Color = Color.Purple;
+			this.EnergyChart_21.Series[0].Name = "18~21h PowerFrequency";
+
+			this.EnergyChart_24.Series[0].Points.Clear();
+			this.EnergyChart_24.Series[0].Color = Color.Black;
+			this.EnergyChart_24.Series[0].Name = "21~24h PowerFrequency";
 		}
 
 		public void SetController(IController controller)
@@ -44,12 +74,12 @@ namespace DayClustering
 
 					break;
 				case VIEW_ACTIONS.REQUEST_DAYDATA:
-					this.EnergyChart.Series[0].Name = "0~3h PowerFrequency";
-					this.EnergyChart.Series[0].Points.Clear();
-					this.EnergyChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+					
+					this.EnergyChart_3.Series[0].Points.Clear();
+					this.EnergyChart_3.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
 					for (int p = 0; p < e.powerFrequencies.Length; p++)
 					{
-						this.EnergyChart.Series[0].Points.AddXY(e.powerFrequencies[p].wh, e.powerFrequencies[p].frequency);
+						this.EnergyChart_3.Series[0].Points.AddXY(e.powerFrequencies[p].wh, e.powerFrequencies[p].frequency);
 					}
 					/*
 					if(eg == null)
