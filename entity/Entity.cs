@@ -59,4 +59,28 @@ namespace DayClustering.entity
 				, this.uid, this.mainCluster, this.subCluster, this.Wh, string.Join(" / ", this.timeSlot));
 		}
 	}
+
+	public class PowerFrequency : IComparable
+	{
+		public double wh;
+		public int frequency;
+
+		public PowerFrequency(double wh)
+		{
+			this.wh = wh;
+			this.frequency = 0;
+		}
+
+		public void IncFrequency()
+		{
+			this.frequency++;
+		}
+
+		public int CompareTo(object obj)
+		{
+			if(obj is PowerFrequency)
+				return this.wh.CompareTo((obj as PowerFrequency).wh);
+			throw new ArgumentException("Object is not a PowerFrequency");
+		}
+	}
 }

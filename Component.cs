@@ -33,11 +33,13 @@ namespace DayClustering
 			switch (e.action)
 			{
 				case MODEL_ACTIONS.LOAD_EXCEL_SUCCESS:
-					// MessageBox.Show(String.Format("{0} 클러스터에 {1} 존재합니다!",e.cluster, e.search));
+					Console.WriteLine(String.Format("{0} 클러스터에 {1} 존재합니다!",e.cluster, e.search));
 					Console.WriteLine();
 					break;
 				case MODEL_ACTIONS.LOAD_EXCEL_NOT_FOUND:
-					MessageBox.Show("검색 결과가 존재하지 않습니다!");
+					// MessageBox.Show("검색 결과가 존재하지 않습니다!");
+					Console.WriteLine(String.Format("해당 가구 데이터는 {0} 에 존재하지 않습니다.", e.day));
+
 					break;
 				case VIEW_ACTIONS.REQUEST_DAYDATA:
 					if(eg == null)

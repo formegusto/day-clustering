@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,12 @@ namespace DayClustering
 			this.action = a;
 			this.cluster = c;
 			this.search = s;
+			this.day = d;
+		}
+
+		public ModelEventArgs(string a, string d)
+		{
+			this.action = a;
 			this.day = d;
 		}
 
@@ -73,8 +80,8 @@ namespace DayClustering
 
 		public void LoadExcel()
 		{
-			DateTime startDate = new DateTime(2018,12,1);
-			DateTime endDate = new DateTime(2018, 12, 31);
+			DateTime startDate = new DateTime(2018,5,1);
+			DateTime endDate = new DateTime(2019, 4, 29);
 			List<DateTime> dateList = new List<DateTime>();
 
 			for (int i = 0; i < 7; i++)
@@ -112,7 +119,7 @@ namespace DayClustering
 				}
 
 				sr.Close();
-				this.changed.Invoke(this, new ModelEventArgs(MODEL_ACTIONS.LOAD_EXCEL_NOT_FOUND));
+				this.changed.Invoke(this, new ModelEventArgs(MODEL_ACTIONS.LOAD_EXCEL_NOT_FOUND, currentDay.ToString("yyyyMMdd")));
 			});
 		}
 

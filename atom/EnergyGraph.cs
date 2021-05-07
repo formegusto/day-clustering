@@ -15,8 +15,8 @@ namespace DayClustering.atom
 	{
 		public DayData[] dayData;
 
-		static Pen clusterPen = new Pen(Color.Red, 2);
-		static Pen dataPen = new Pen(Color.Orange, 2);
+		static Pen clusterPen = new Pen(Color.FromArgb(64,0,0,255), 1);
+		static Pen dataPen = new Pen(Color.FromArgb(16, 0, 255, 0), 2);
 
 		Bitmap bitmap;
 
