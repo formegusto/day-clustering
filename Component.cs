@@ -17,42 +17,53 @@ namespace DayClustering
 		public event ViewHandler<IView> changed;
 		IController controller;
 		EnergyGraph eg;
+		List<System.Windows.Forms.DataVisualization.Charting.Chart> charts;
 
 		public Component()
 		{
 			InitializeComponent();
 
+			this.charts = new List<System.Windows.Forms.DataVisualization.Charting.Chart>();
+
 			this.EnergyChart_3.Series[0].Points.Clear();
 			this.EnergyChart_3.Series[0].Color = Color.Red;
 			this.EnergyChart_3.Series[0].Name = "0~3h PowerFrequency";
+			this.charts.Add(this.EnergyChart_3);
 
 			this.EnergyChart_6.Series[0].Points.Clear();
 			this.EnergyChart_6.Series[0].Color = Color.Orange;
 			this.EnergyChart_6.Series[0].Name = "3~6h PowerFrequency";
+			this.charts.Add(this.EnergyChart_6);
 
 			this.EnergyChart_9.Series[0].Points.Clear();
 			this.EnergyChart_9.Series[0].Color = Color.Yellow;
 			this.EnergyChart_9.Series[0].Name = "6~9h PowerFrequency";
+			this.charts.Add(this.EnergyChart_9);
 
 			this.EnergyChart_12.Series[0].Points.Clear();
 			this.EnergyChart_12.Series[0].Color = Color.Green;
 			this.EnergyChart_12.Series[0].Name = "9~12h PowerFrequency";
+			this.charts.Add(this.EnergyChart_12);
 
 			this.EnergyChart_15.Series[0].Points.Clear();
 			this.EnergyChart_15.Series[0].Color = Color.Blue;
 			this.EnergyChart_15.Series[0].Name = "12~15h PowerFrequency";
+			this.charts.Add(this.EnergyChart_15);
 
 			this.EnergyChart_18.Series[0].Points.Clear();
 			this.EnergyChart_18.Series[0].Color = Color.Navy;
 			this.EnergyChart_18.Series[0].Name = "15~18h PowerFrequency";
+			this.charts.Add(this.EnergyChart_18);
 
 			this.EnergyChart_21.Series[0].Points.Clear();
 			this.EnergyChart_21.Series[0].Color = Color.Purple;
 			this.EnergyChart_21.Series[0].Name = "18~21h PowerFrequency";
+			this.charts.Add(this.EnergyChart_21);
 
 			this.EnergyChart_24.Series[0].Points.Clear();
 			this.EnergyChart_24.Series[0].Color = Color.Black;
 			this.EnergyChart_24.Series[0].Name = "21~24h PowerFrequency";
+			this.charts.Add(this.EnergyChart_24);
 		}
 
 		public void SetController(IController controller)
@@ -74,12 +85,14 @@ namespace DayClustering
 
 					break;
 				case VIEW_ACTIONS.REQUEST_DAYDATA:
-					
-					this.EnergyChart_3.Series[0].Points.Clear();
-					this.EnergyChart_3.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
 					for (int p = 0; p < e.powerFrequencies.Length; p++)
 					{
-						this.EnergyChart_3.Series[0].Points.AddXY(e.powerFrequencies[p].wh, e.powerFrequencies[p].frequency);
+						this.charts[p].Series[0].Points.Clear();
+						this.charts[p].Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+						e.powerFrequencies[p].ForEach((pp) =>
+						{
+							this.charts[p].Series[0].Points.AddXY(pp.wh, pp.frequency);
+						});
 					}
 					/*
 					if(eg == null)

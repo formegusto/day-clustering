@@ -23,7 +23,7 @@ namespace DayClustering
 		public string search;
 		public string day;
 		public DayData[] dayData;
-		public PowerFrequency[] powerFrequencies;
+		public List<PowerFrequency>[] powerFrequencies;
 
 		public ModelEventArgs(string a)
 		{
@@ -44,7 +44,7 @@ namespace DayClustering
 			this.day = d;
 		}
 
-		public ModelEventArgs(string a, DayData[] dd, PowerFrequency[] pf) {
+		public ModelEventArgs(string a, DayData[] dd, List<PowerFrequency>[] pf) {
 			this.action = a;
 			this.dayData = dd;
 			this.powerFrequencies = pf;
@@ -70,7 +70,7 @@ namespace DayClustering
 		public string timeSlotChk;
 		public event ModelHandler<DayClusteringModel> changed;
 		public List<DayData>[] dayStore;
-		public PowerFrequency[] powerFrequencies;
+		public List<PowerFrequency>[] powerFrequencies;
 
 		public DayClusteringModel() {
 			this.searchKeyword = "";
@@ -132,30 +132,46 @@ namespace DayClustering
 
 		public void RequestDayData(string dayFullName)
 		{
-			List<PowerFrequency> pfList = new List<PowerFrequency>();
+			List<PowerFrequency>[] pfList = new List<PowerFrequency>[8];
+
+			for(int p = 0; p < this.dayStore[DateUtils.KRDayToIndex(dayFullName)][0].data.timeSlot.Length; p++)
+			{
+				pfList[p] = new List<PowerFrequency>();
+			}
 
 			this.dayStore[DateUtils.KRDayToIndex(dayFullName)].ForEach((d) =>
 			{
 				
 				Console.WriteLine(d.ToString());
-				PowerFrequency findPf = pfList.Find((pf) => pf.wh == Math.Floor((Math.Round(d.data.timeSlot[0] / 10) * 10) / 50) * 50);
+				for(int t = 0; t < d.data.timeSlot.Length; t++)
+				{
+					PowerFrequency findPf = pfList[t].Find((pf) => pf.wh == Math.Floor((Math.Round(d.data.timeSlot[t] / 10) * 10) / 50) * 50);
 
-				if (findPf == null)
-				{
-					pfList.Add(new PowerFrequency(Math.Floor((Math.Round(d.data.timeSlot[0] / 10) * 10) / 50) * 50));
-				} else
-				{
-					findPf.IncFrequency();
+					if (findPf == null)
+					{
+						pfList[t].Add(new PowerFrequency(Math.Floor((Math.Round(d.data.timeSlot[t] / 10) * 10) / 50) * 50));
+					}
+					else
+					{
+						findPf.IncFrequency();
+					}
 				}
 			});
 
-			pfList.Sort();
-			pfList.ForEach((pf) =>
+			for (int p = 0; p < this.dayStore[DateUtils.KRDayToIndex(dayFullName)][0].data.timeSlot.Length; p++)
 			{
-				Console.WriteLine(pf.ToString());
-			});
+				pfList[p].Sort();
+			}
 
-			this.powerFrequencies = pfList.ToArray();
+			for (int p = 0; p < this.dayStore[DateUtils.KRDayToIndex(dayFullName)][0].data.timeSlot.Length; p++)
+			{
+				pfList[p].ForEach((pf) =>
+				{
+					Console.WriteLine(pf.ToString());
+				});
+			}
+
+			this.powerFrequencies = pfList;
 
 			this.changed.Invoke(this, new ModelEventArgs(VIEW_ACTIONS.REQUEST_DAYDATA, this.dayStore[DateUtils.KRDayToIndex(dayFullName)].ToArray(), this.powerFrequencies));
 		}
