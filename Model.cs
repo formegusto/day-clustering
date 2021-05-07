@@ -67,6 +67,7 @@ namespace DayClustering
 		public string searchKeyword;
 		public event ModelHandler<DayClusteringModel> changed;
 		public List<DayData>[] dayStore;
+		public PowerFrequency[] powerFrequencies;
 
 		public DayClusteringModel() {
 			this.searchKeyword = "";
@@ -127,9 +128,27 @@ namespace DayClustering
 
 		public void RequestDayData(string dayFullName)
 		{
+			List<PowerFrequency> pfList = new List<PowerFrequency>();
+
 			this.dayStore[DateUtils.KRDayToIndex(dayFullName)].ForEach((d) =>
 			{
+				
 				Console.WriteLine(d.ToString());
+				PowerFrequency findPf = pfList.Find((pf) => pf.wh == Math.Round(d.data.timeSlot[0] / 10) * 10);
+
+				if (findPf == null)
+				{
+					pfList.Add(new PowerFrequency(Math.Round(d.data.timeSlot[0] / 10) * 10));
+				} else
+				{
+					findPf.IncFrequency();
+				}
+			});
+
+			pfList.Sort();
+			pfList.ForEach((pf) =>
+			{
+				Console.WriteLine(pf.ToString());
 			});
 
 			this.changed.Invoke(this, new ModelEventArgs(VIEW_ACTIONS.REQUEST_DAYDATA, this.dayStore[DateUtils.KRDayToIndex(dayFullName)].ToArray()));

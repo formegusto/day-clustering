@@ -68,7 +68,7 @@ namespace DayClustering.entity
 		public PowerFrequency(double wh)
 		{
 			this.wh = wh;
-			this.frequency = 0;
+			this.frequency = 1;
 		}
 
 		public void IncFrequency()
@@ -81,6 +81,14 @@ namespace DayClustering.entity
 			if(obj is PowerFrequency)
 				return this.wh.CompareTo((obj as PowerFrequency).wh);
 			throw new ArgumentException("Object is not a PowerFrequency");
+		}
+
+		public String ToString()
+		{
+			return String.Format("[Wh] {0}\n" + 
+					"[Frequency] {1}\n",
+					this.wh, this.frequency
+				);
 		}
 	}
 }
