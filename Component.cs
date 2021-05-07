@@ -21,6 +21,8 @@ namespace DayClustering
 		public Component()
 		{
 			InitializeComponent();
+
+			this.EnergyChart.Series[0].Points.Clear();
 		}
 
 		public void SetController(IController controller)
@@ -42,6 +44,14 @@ namespace DayClustering
 
 					break;
 				case VIEW_ACTIONS.REQUEST_DAYDATA:
+					this.EnergyChart.Series[0].Name = "0~3h PowerFrequency";
+					this.EnergyChart.Series[0].Points.Clear();
+					this.EnergyChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+					for (int p = 0; p < e.powerFrequencies.Length; p++)
+					{
+						this.EnergyChart.Series[0].Points.AddXY(e.powerFrequencies[p].wh, e.powerFrequencies[p].frequency);
+					}
+					/*
 					if(eg == null)
 					{
 						this.eg = new EnergyGraph()
@@ -57,6 +67,7 @@ namespace DayClustering
 					
 					eg.DrawBitmap();
 					eg.Invalidate();
+					*/
 
 					break;
 				default:
